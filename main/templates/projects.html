@@ -1,0 +1,31 @@
+{% load static %}
+<section class="section section-alt" id="Projects">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Portfolio</span>
+            <h2>Featured Projects</h2>
+            <p>A selection of work showcasing my skills in web development and problem solving.</p>
+        </div>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <article class="project-card">
+                <div class="project-card-header">
+                    <i class="{{ project.icon }} project-icon"></i>
+                </div>
+                <div class="project-card-body">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <div class="project-tags">
+                        {% for tag in project.tags %}
+                        <span class="project-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <a href="{{ project.link }}" class="btn btn-ghost" {% if project.link != '#' %}target="_blank" rel="noopener"{% endif %}>
+                        <i class="fas fa-arrow-up-right-from-square"></i> View Project
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

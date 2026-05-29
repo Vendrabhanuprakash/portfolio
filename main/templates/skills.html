@@ -1,0 +1,35 @@
+{% load static %}
+<section class="section" id="Skills">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Expertise</span>
+            <h2>Skills &amp; Technologies</h2>
+            <p>Tools and technologies I use to bring ideas to life.</p>
+        </div>
+        <div class="skills-layout">
+            {% for category in skill_categories %}
+            <div class="skill-category">
+                <h3><i class="{{ category.icon }}"></i> {{ category.name }}</h3>
+                {% for skill in category.skills %}
+                <div class="skill-item">
+                    <div class="skill-item-header">
+                        <span>{{ skill.name }}</span>
+                        <em>{{ skill.level }}%</em>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: {{ skill.level }}%"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if category.badges %}
+                <div class="skill-badges">
+                    {% for badge in category.badges %}
+                    <span class="skill-badge">{{ badge }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
