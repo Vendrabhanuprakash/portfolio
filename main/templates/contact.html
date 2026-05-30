@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div id="contact-container">
-                <form action="{% url 'contact-view' %}" method="post">
+                <form>
                     {% csrf_token %}
                     <div class="contact-form-group">
                         <label for="name">Name</label>

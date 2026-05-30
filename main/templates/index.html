@@ -61,5 +61,35 @@
     {% include 'footer.html' %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init("ueAJHWW-A4V9T78jK");
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const btn = form.querySelector("button");
+      btn.innerText = "Sending...";
+
+      emailjs.send("service_wzlucan", "template_k3pfd8k", {
+        from_name: document.getElementById("name").value,
+        from_email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+      })
+      .then(() => {
+        btn.innerText = "Sent ✔";
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        btn.innerText = "Failed ❌";
+      });
+    });
+  });
+</script>
 </body>
 </html>
