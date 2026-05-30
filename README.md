@@ -1,5 +1,6 @@
 # Personal Portfolio — Django
 
+deployed link:https://portfolio-hyoc.onrender.com
 A single-page portfolio website for **Vendra Bhanu Prakash**, built with **Django**. It showcases projects, skills, resume links, and a contact section with a modern, responsive design.
 
 ---

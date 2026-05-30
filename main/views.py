@@ -1,6 +1,8 @@
-from django.shortcuts import render
-
-
+from django.shortcuts import redirect, render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+from django.contrib import messages
 def home(request):
     context = {
         'projects': [
@@ -60,3 +62,16 @@ def home(request):
         ],
     }
     return render(request, 'index.html', context)
+def contact_view(request):
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            message = request.POST.get('message')
+            send_mail(
+                subject=f'New Contact Form Submission from {name}',
+                message=f'Name: {name}\nEmail: {email}\nMessage:\n{message}',
+                from_email=email,
+                recipient_list=['vendrabhanuprakash149.ai@gmail.com']
+            )
+            messages.success(request, 'Message sent successfully!')
+            return redirect('home')

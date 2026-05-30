@@ -24,7 +24,8 @@
                 </div>
             </div>
             <div id="contact-container">
-                <form>
+                <form action="{% url 'contact-view' %}" method="post">
+                    {% csrf_token %}
                     <div class="contact-form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -37,7 +38,7 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Tell me about your project or idea..." rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    <button  class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Send Message
                     </button>
                 </form>

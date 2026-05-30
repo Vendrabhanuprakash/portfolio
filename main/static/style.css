@@ -100,7 +100,20 @@ img {
 .navbar-brand i {
     color: var(--accent-blue);
 }
+.message-container{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
 
+.message-container .alert{
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    border-radius: 10px;
+}
+#ccc{
+    margin:0px;
+}
 .navbar-brand .brand-accent {
     background: var(--gradient-primary);
     background-size: 200% 200%;
