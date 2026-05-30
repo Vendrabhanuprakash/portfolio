@@ -71,7 +71,9 @@ def contact_view(request):
                 subject=f'New Contact Form Submission from {name}',
                 message=f'Name: {name}\nEmail: {email}\nMessage:\n{message}',
                 from_email=email,
-                recipient_list=['vendrabhanuprakash149.ai@gmail.com']
+                recipient_list=['vendrabhanuprakash149.ai@gmail.com'],
+                fail_silently=False,
             )
             messages.success(request, 'Message sent successfully!')
             return redirect('home')
+        
